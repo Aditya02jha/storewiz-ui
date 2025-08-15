@@ -1,6 +1,6 @@
 // src/services/productService.ts
 import { apiService } from './api';
-import type { Product, ProductFormData } from '../types/common';
+import type { Product, ProductFormData } from '../types/product';
 import type { PaginatedResponse } from '../types/common';
 
 export interface ProductSearchParams {
