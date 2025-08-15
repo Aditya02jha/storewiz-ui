@@ -1,7 +1,7 @@
 // src/hooks/useProducts.ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { productService, ProductSearchParams } from '@/services/productService';
-import { Product, ProductFormData } from '@/types/product';
+import { productService, ProductSearchParams } from '../services/productService';
+import { Product, ProductFormData } from '../types/product';
 import { toast } from 'sonner';
 
 export const useProducts = (params: ProductSearchParams = {}) => {

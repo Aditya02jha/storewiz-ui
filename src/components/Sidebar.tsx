@@ -1,28 +1,26 @@
 import { Button } from "./ui/button";
 import { 
   Package, 
-  BarChart3, 
   Users, 
   Settings, 
   Home,
   ShoppingCart,
   FileText,
-  Bell,
   LogOut
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Sidebar = () => {
   const location = useLocation();
+  const { logout } = useAuth();
 
   const navigation = [
     { name: "Dashboard", href: "/dashboard", icon: Home },
-    { name: "Inventory", href: "/inventory", icon: Package },
-    { name: "Orders", href: "/orders", icon: ShoppingCart },
-    { name: "Analytics", href: "/analytics", icon: BarChart3 },
-    { name: "Reports", href: "/reports", icon: FileText },
-    { name: "Team", href: "/team", icon: Users },
-    { name: "Notifications", href: "/notifications", icon: Bell },
+    { name: "Products", href: "/products", icon: Package },
+    { name: "Vendors", href: "/vendors", icon: Users },
+    { name: "Inventory", href: "/inventory", icon: ShoppingCart },
+    { name: "Categories", href: "/categories", icon: FileText },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -75,10 +73,7 @@ const Sidebar = () => {
         <Button 
           variant="ghost" 
           className="w-full justify-start text-muted-foreground hover:text-foreground"
-          onClick={() => {
-            // Handle logout
-            window.location.href = "/";
-          }}
+          onClick={logout}
         >
           <LogOut className="h-5 w-5 mr-3" />
           <span className="font-medium">Logout</span>

@@ -18,6 +18,10 @@ export interface Product extends BaseEntity {
   category: Category;
   createdBy: string;
   active: boolean;
+  // Additional fields for compatibility with components
+  price?: number;
+  stock?: number;
+  status?: 'active' | 'inactive';
 }
 
 export interface ProductFormData {
@@ -29,4 +33,15 @@ export interface ProductFormData {
   minStockLevel: number;
   maxStockLevel: number;
   categoryId: number;
+}
+
+// Simple product interface for components
+export interface SimpleProduct {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  stock: number;
+  status: 'active' | 'inactive';
 }
